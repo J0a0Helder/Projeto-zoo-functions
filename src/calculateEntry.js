@@ -5,7 +5,7 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  
+  //
 }
 
 module.exports = { calculateEntry, countEntrants };
