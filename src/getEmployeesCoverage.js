@@ -2,26 +2,6 @@ const data = require('../data/zoo_data');
 
 const { employees } = data;
 const { species } = data;
-
-function getEmployess(obj) {
-  const pessoa = employees.find((codigo) => codigo.id === obj.id
-  || codigo.firstName === obj.name
-  || codigo.lastName === obj.name);
-  if (!pessoa) throw new Error('Informações inválidas');
-  return pessoa;
-}
-
-function getSpecies(obj) {
-  const pessoa = getEmployess(obj);
-
-  const especies = species.filter((codigo) => codigo.id === pessoa.responsibleFor[0]
-      || codigo.id === pessoa.responsibleFor[1]
-      || codigo.id === pessoa.responsibleFor[2]
-      || codigo.id === pessoa.responsibleFor[3]);
-
-  return especies;
-}
-
 const noParameters = [
   {
     id: 'c5b83cb3-a451-49e2-ac45-ff3f54fbe7e1',
@@ -73,6 +53,25 @@ const noParameters = [
   },
 ];
 
+function getEmployess(obj) {
+  const pessoa = employees.find((codigo) => codigo.id === obj.id
+  || codigo.firstName === obj.name
+  || codigo.lastName === obj.name);
+  if (!pessoa) throw new Error('Informações inválidas');
+  return pessoa;
+}
+
+function getSpecies(obj) {
+  const pessoa = getEmployess(obj);
+
+  const especies = species.filter((codigo) => codigo.id === pessoa.responsibleFor[0]
+      || codigo.id === pessoa.responsibleFor[1]
+      || codigo.id === pessoa.responsibleFor[2]
+      || codigo.id === pessoa.responsibleFor[3]);
+
+  return especies;
+}
+
 function getEmployeesCoverage(obj) {
   if (!obj) return noParameters;
   const especies = getSpecies(obj);
@@ -87,7 +86,6 @@ function getEmployeesCoverage(obj) {
     species: nomesDasEspecies,
     locations: localDasEspecies,
   };
-
   return resultado;
 }
 
