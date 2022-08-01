@@ -32,5 +32,5 @@ function getSchedule(scheduleTarget) {
 
   return noParameters(scheduleTarget);
 }
-
+// Obg a '[Trybe] Caról Sìlva' pela ajuda <3
 module.exports = getSchedule;
