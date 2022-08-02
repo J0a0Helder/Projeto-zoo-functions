@@ -31,7 +31,7 @@ function includesNameESort(option) {
   return obj;
 }
 
-const buscaLocalPorNomeSexo = (options) => {
+function localNameAndSex(options) {
   const obj = {};
   locais.forEach((valor) => {
     obj[valor] = [];
@@ -50,11 +50,11 @@ const buscaLocalPorNomeSexo = (options) => {
   });
 
   return obj;
-};
+}
 
 function getAnimalMap(options) {
   if (!options || !options.includeNames) return noParameters();
-  if (options.sex) return buscaLocalPorNomeSexo(options);
+  if (options.sex) return localNameAndSex(options);
 
   return includesNameESort(options);
 }
